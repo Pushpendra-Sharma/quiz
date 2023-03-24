@@ -1,7 +1,11 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App, { appLoader } from './App';
 import { Home } from './components';
-import { QuestionContainer, ResultContainer } from './containers';
+import {
+  AnswersContainer,
+  QuestionContainer,
+  ResultContainer,
+} from './containers';
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +25,10 @@ export const router = createBrowserRouter([
       {
         path: 'result',
         element: <ResultContainer />,
+      },
+      {
+        path: 'answers',
+        element: <AnswersContainer />,
       },
     ],
   },

@@ -8,7 +8,7 @@ const QuestionContainer = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const dispatch = useDispatch();
-  const selectedAnswer = useSelector(state => state.quiz.responses[id]);
+  const selectedAnswer = useSelector(state => state.quiz.responses[id]?.answer);
 
   const { title, options } = questions[id];
 

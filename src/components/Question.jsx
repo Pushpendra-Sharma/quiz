@@ -1,24 +1,17 @@
-import { useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { Button } from './';
 
-const Question = ({ title, options }) => {
+const Question = ({ title, options, handleNav, id, response }) => {
   const [value, setvalue] = useState('');
-  const navigate = useNavigate();
-  const { id } = useParams();
 
   const handleChange = e => {
     setvalue(e.target.value);
   };
 
-  const handleNext = e => {
-    const idNum = Number(id);
-    if (idNum === 5) {
-      navigate(`/result`);
-    } else {
-      navigate(`/question/${idNum + 1}`);
-    }
-  };
+  useEffect(() => {
+    if (response) setvalue(response);
+    else setvalue('');
+  }, [id]);
 
   return (
     <div className='w-full sm:px-4 md:px-8 lg:px-20 xl:px-24 bg-gray-200'>
@@ -26,7 +19,7 @@ const Question = ({ title, options }) => {
         <div className='flex flex-col gap-4 p-4'>
           <div className='flex justify-between'>
             <span className='py-1 px-6 text-sm text-white font-medium rounded-3xl bg-green-300'>
-              01/05
+              {id}/05
             </span>
             <span className='py-1 px-6 text-sm text-white font-medium rounded-3xl bg-purple-300'>
               10:00
@@ -36,7 +29,7 @@ const Question = ({ title, options }) => {
             {title}
           </p>
         </div>
-        <div className='p-4'>
+        <div className='px-4'>
           <ul className=''>
             {options.map((item, index) => (
               <li
@@ -56,6 +49,7 @@ const Question = ({ title, options }) => {
                   className='w-4 h-4'
                   onChange={handleChange}
                   value={item.value}
+                  checked={value === item.value}
                 />
               </li>
             ))}
@@ -64,7 +58,7 @@ const Question = ({ title, options }) => {
         <div className='text-center bg-white py-8 sm:mx-4 sm:rounded-t-md'>
           <Button
             label={Number(id) === 5 ? 'Submit' : 'Next'}
-            callback={handleNext}
+            callback={() => handleNav(value)}
           />
         </div>
       </div>

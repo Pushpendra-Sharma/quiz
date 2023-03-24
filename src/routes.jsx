@@ -1,8 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App, { appLoader } from './App';
-import { Home, Question } from './components';
-import { ResultContainer } from './containers';
-import { questions } from './utils/constants';
+import { Home } from './components';
+import { QuestionContainer, ResultContainer } from './containers';
 
 export const router = createBrowserRouter([
   {
@@ -16,8 +15,8 @@ export const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: '/question/:id',
-        element: <Question {...questions[0]}/>,
+        path: 'question/:id',
+        element: <QuestionContainer />,
       },
       {
         path: 'result',

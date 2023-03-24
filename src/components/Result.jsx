@@ -1,7 +1,9 @@
 import logo from '../assets/logo.png';
 import { Button } from './';
 
-const Result = ({ handleNav,score }) => {
+const Result = ({ handleNav, data }) => {
+  const { score, percent, correct, total } = data;
+
   return (
     <div className='w-full sm:px-4 md:px-8 lg:px-20 xl:px-24 bg-purple-200'>
       <div className='flex flex-col justify-between gap-4 sm:mx-4 md:mx-8 lg:mx-20 xl:mx-24'>
@@ -11,7 +13,7 @@ const Result = ({ handleNav,score }) => {
           </p>
           <div className='flex flex-col gap-2 items-center py-4 px-8 bg-white shadow-md rounded-xl'>
             <p className='text-xs text-green-500 font-medium'>You Scored:</p>
-            <p className='text-3xl text-purple-700 font-bold'>40%</p>
+            <p className='text-3xl text-purple-700 font-bold'>{percent}%</p>
             <p className='font-medium text-gray-600'>
               Oh Snap, You can do better!
             </p>
@@ -24,8 +26,10 @@ const Result = ({ handleNav,score }) => {
         <div className='flex justify-between px-8'>
           <div className='flex flex-col gap-1'>
             <p className='text-gray-700 font-semibold'>Your Score</p>
-            <p className='text-3xl text-purple-700 font-bold'>2/5</p>
-            <p className='text-xs font-medium text-gray-700'>Avg: 2 marks</p>
+            <p className='text-3xl text-purple-700 font-bold'>{`${correct}/${total}`}</p>
+            <p className='text-xs font-medium text-gray-700'>
+              Avg: {score} marks
+            </p>
           </div>
           <div className='flex flex-col gap-1'>
             <p className='text-gray-700 font-semibold'>Time Taken</p>

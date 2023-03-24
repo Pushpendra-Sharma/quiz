@@ -4,4 +4,5 @@ export { default as Header } from './Header';
 export { default as Home } from './Home';
 export { default as Question } from './Question';
 export { default as QuizDetails } from './QuizDetails';
+export { default as Result } from './Result';
 export { default as Title } from './Title';

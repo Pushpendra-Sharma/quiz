@@ -3,9 +3,19 @@ import { Button } from './';
 
 const Question = ({ title, options, handleNav, id, response }) => {
   const [value, setvalue] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = e => {
     setvalue(e.target.value);
+    setErrorMessage('');
+  };
+
+  const handleClick = () => {
+    if (value !== '') {
+      handleNav(value);
+    } else {
+      setErrorMessage('Please select a response!');
+    }
   };
 
   useEffect(() => {
@@ -54,11 +64,16 @@ const Question = ({ title, options, handleNav, id, response }) => {
               </li>
             ))}
           </ul>
+          {errorMessage && (
+            <p className='text-sm text-rose-600 font-medium px-4'>
+              {errorMessage}
+            </p>
+          )}
         </div>
         <div className='text-center bg-white py-8 sm:mx-4 sm:rounded-t-md'>
           <Button
             label={Number(id) === 5 ? 'Submit' : 'Next'}
-            callback={() => handleNav(value)}
+            callback={handleClick}
           />
         </div>
       </div>

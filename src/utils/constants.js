@@ -25,7 +25,8 @@ export const questions = {
   },
   2: {
     id: '2',
-    title: 'What is the output of the following: console.log(typeof [1,2,3]) in javascript?',
+    title:
+      'What is the output of the following: console.log(typeof [1,2,3]) in javascript?',
     answer: 'object',
     options: [
       {
@@ -118,4 +119,11 @@ export const questions = {
       },
     ],
   },
+};
+
+export const PERFORMANCE = {
+  avg: 'Oh Snap, You can do better!',
+  below: 'Work hard, You will progress!',
+  good: 'Good job, Keep practicing!',
+  top: 'Success is not final, failure is not fatal; It is the courage to contine that counts.',
 };

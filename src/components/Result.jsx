@@ -1,8 +1,17 @@
 import logo from '../assets/logo.png';
+import { PERFORMANCE } from '../utils/constants';
 import { Button } from './';
 
 const Result = ({ handleNav, data }) => {
   const { score, percent, correct, total } = data;
+
+  let message = '';
+  console.log(':::', percent);
+
+  if (percent >= 80) message = PERFORMANCE.top;
+  else if (percent >= 60) message = PERFORMANCE.good;
+  else if (percent >= 40) message = PERFORMANCE.avg;
+  else message = PERFORMANCE.below;
 
   return (
     <div className='w-full sm:px-4 md:px-8 lg:px-20 xl:px-24 bg-purple-200'>
@@ -14,9 +23,7 @@ const Result = ({ handleNav, data }) => {
           <div className='flex flex-col gap-2 items-center py-4 px-8 bg-white shadow-md rounded-xl'>
             <p className='text-xs text-green-500 font-medium'>You Scored:</p>
             <p className='text-3xl text-purple-700 font-bold'>{percent}%</p>
-            <p className='font-medium text-gray-600'>
-              Oh Snap, You can do better!
-            </p>
+            <p className='font-medium text-gray-600'>{message}</p>
             <p className='text-xs text-gray-500'>
               Success is not final, failure is not fatal; It is the courage to
               contine that counts.

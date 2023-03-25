@@ -12,10 +12,12 @@ export function calculateScore(questions, responses) {
     total: questions.length,
   };
 
-  for (let i = 0; i < questions.length; i++) {
-    if (responses[i].answer === questions[i].answer) {
-      result.score += 1;
-      result.correct += 1;
+  if (responses && responses.length) {
+    for (let i = 0; i < questions.length; i++) {
+      if (responses[i]?.answer === questions[i].answer) {
+        result.score += 1;
+        result.correct += 1;
+      }
     }
   }
 

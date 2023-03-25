@@ -125,5 +125,5 @@ export const PERFORMANCE = {
   avg: 'Oh Snap, You can do better!',
   below: 'Work hard, You will progress!',
   good: 'Good job, Keep practicing!',
-  top: 'Success is not final, failure is not fatal; It is the courage to contine that counts.',
+  top: 'Excellent Work, keep it up!',
 };

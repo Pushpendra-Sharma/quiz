@@ -2,12 +2,10 @@ import logo from '../assets/logo.png';
 import { PERFORMANCE } from '../utils/constants';
 import { Button } from './';
 
-const Result = ({ handleNav, data }) => {
+const Result = ({ handleNav, data, time }) => {
   const { score, percent, correct, total } = data;
 
   let message = '';
-  console.log(':::', percent);
-
   if (percent >= 80) message = PERFORMANCE.top;
   else if (percent >= 60) message = PERFORMANCE.good;
   else if (percent >= 40) message = PERFORMANCE.avg;
@@ -41,10 +39,12 @@ const Result = ({ handleNav, data }) => {
           <div className='flex flex-col gap-1'>
             <p className='text-gray-700 font-semibold'>Time Taken</p>
             <p>
-              <span className='text-3xl text-purple-700 font-bold'>0:09</span>
+              <span className='text-3xl text-purple-700 font-bold'>
+               {time}
+              </span>
               <span className='text-xs font-medium text-gray-700'>min</span>
             </p>
-            <p className='text-xs font-medium text-gray-600'>Avg: 1:59 mins</p>
+            <p className='text-xs font-medium text-gray-600'>Avg: {time} mins</p>
           </div>
         </div>
         <div className='flex flex-col items-center gap-4 my-1'>

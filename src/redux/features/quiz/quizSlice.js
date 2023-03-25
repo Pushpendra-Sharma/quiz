@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   responses: {},
   points: 0,
+  timeTaken: 0,
 };
 
 export const quizSlice = createSlice({
@@ -20,9 +21,13 @@ export const quizSlice = createSlice({
       state.points = action.payload;
     },
     submitQuiz: (state, action) => {},
+    updateTimer: (state, action) => {
+      state.timeTaken = 60-action.payload;
+    },
   },
 });
 
-export const { submitAnswer, clearResponses, updatePoints } = quizSlice.actions;
+export const { submitAnswer, clearResponses, updatePoints, updateTimer } =
+  quizSlice.actions;
 
 export default quizSlice.reducer;

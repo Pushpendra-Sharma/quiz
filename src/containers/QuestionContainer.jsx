@@ -1,7 +1,8 @@
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Question } from '../components';
-import { submitAnswer } from '../redux/features/quiz/quizSlice';
+import { submitAnswer, updateTimer } from '../redux/features/quiz/quizSlice';
 import { questions } from '../utils/constants';
 
 const QuestionContainer = () => {
@@ -9,8 +10,25 @@ const QuestionContainer = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const selectedAnswer = useSelector(state => state.quiz.responses[id]?.answer);
+  const [timer, setTimer] = useState(60);
+
+  useEffect(() => {
+    const tId = setInterval(() => {
+      setTimer(t => t - 1);
+    }, 1000);
+
+    return () => {
+      clearInterval(tId);
+    };
+  }, []);
+
+  useEffect(() => {
+    dispatch(updateTimer(timer));
+  }, [timer]);
 
   const { title, options } = questions[id];
+
+  if (timer === 0) navigate(`/result`);
 
   const handleNext = v => {
     const idNum = Number(id);
@@ -27,6 +45,7 @@ const QuestionContainer = () => {
       response={selectedAnswer}
       options={options}
       handleNav={handleNext}
+      timer={timer}
     />
   );
 };

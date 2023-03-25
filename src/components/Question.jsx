@@ -24,8 +24,8 @@ const Question = ({ title, options, handleNav, id, response, timer }) => {
   }, [id]);
 
   return (
-    <div className='w-full sm:px-4 md:px-8 h-full lg:px-20 xl:px-24 bg-gray-200'>
-      <div className='flex flex-col justify-between gap-4 sm:mx-4 md:mx-8 lg:mx-20 xl:mx-24'>
+    <div className='w-full sm:px-4 md:px-8 h-full lg:px-20 xl:px-24 bg-gray-200 pt-4'>
+      <div className='flex flex-col justify-between gap-4 h-full sm:mx-4 md:mx-8 lg:mx-20 xl:mx-24'>
         <div className='flex flex-col gap-4 p-4'>
           <div className='flex justify-between'>
             <span className='py-1 px-6 text-sm text-white font-medium rounded-3xl bg-green-300'>

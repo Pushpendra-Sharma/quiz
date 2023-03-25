@@ -7,8 +7,8 @@ const AnswersContainer = () => {
   const questionArray = Object.values(questions);
 
   return (
-    <div className='w-full sm:px-4 md:px-8 lg:px-20 xl:px-24 bg-gray-200'>
-      <div className='flex flex-col justify-between gap-4 sm:mx-4 md:mx-8 lg:mx-20 xl:mx-24'>
+    <div className='w-full h-full sm:px-4 md:px-8 lg:px-20 xl:px-24 bg-gray-200'>
+      <div className='flex flex-col justify-between gap-4 h-full sm:mx-4 md:mx-8 lg:mx-20 xl:mx-24'>
         <h1 className='text-3xl text-purple-700 font-bold text-center py-4'>Answers</h1>
         <div>
           {questionArray.map(ques => {

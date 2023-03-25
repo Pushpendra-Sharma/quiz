@@ -9,10 +9,10 @@ const Home = () => {
   };
 
   return (
-    <main className='flex flex-col p-4'>
+    <main className='flex flex-col p-4 w-full h-full'>
       <Title />
       <QuizDetails />
-      <div className='text-center mt-8'>
+      <div className='text-center my-8'>
         <Button label='Take Quiz' callback={handleNav} />
       </div>
     </main>

@@ -12,8 +12,8 @@ const Result = ({ handleNav, data, time }) => {
   else message = PERFORMANCE.below;
 
   return (
-    <div className='w-full sm:px-4 md:px-8 lg:px-20 xl:px-24 bg-purple-200'>
-      <div className='flex flex-col justify-between gap-4 sm:mx-4 md:mx-8 lg:mx-20 xl:mx-24'>
+    <div className='w-full h-full sm:px-4 md:px-8 lg:px-20 xl:px-24 bg-purple-200'>
+      <div className='flex flex-col justify-between gap-4 h-full sm:mx-4 md:mx-8 lg:mx-20 xl:mx-24'>
         <div className='flex flex-col gap-4 p-4'>
           <p className='text-2xl text-gray-700 font-bold'>
             The Daily JavaScript Quiz

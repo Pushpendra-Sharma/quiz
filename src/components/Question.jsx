@@ -1,7 +1,15 @@
 import { useEffect, useState } from 'react';
 import { Button } from './';
 
-const Question = ({ title, options, handleNav, id, response, timer }) => {
+const Question = ({
+  title,
+  options,
+  handleNav,
+  id,
+  response,
+  timer,
+  handleBack,
+}) => {
   const [value, setvalue] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -72,7 +80,8 @@ const Question = ({ title, options, handleNav, id, response, timer }) => {
             </p>
           )}
         </div>
-        <div className='text-center bg-white py-8 sm:mx-4 sm:rounded-t-md'>
+        <div className='text-center bg-white py-8 sm:mx-4 sm:rounded-t-md flex justify-center gap-4'>
+          <Button label='Previous' callback={handleBack} />
           <Button
             label={Number(id) === 5 ? 'Submit' : 'Next'}
             callback={handleClick}

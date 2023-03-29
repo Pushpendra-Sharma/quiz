@@ -38,6 +38,16 @@ const QuestionContainer = () => {
     else navigate(`/question/${idNum + 1}`);
   };
 
+  const handleBack = () => {
+    const idNum = Number(id);
+
+    if (idNum === 1) {
+      navigate('/');
+    } else {
+      navigate(`/question/${idNum - 1}`);
+    }
+  };
+
   return (
     <Question
       id={id}
@@ -46,6 +56,7 @@ const QuestionContainer = () => {
       options={options}
       handleNav={handleNext}
       timer={timer}
+      handleBack={handleBack}
     />
   );
 };
